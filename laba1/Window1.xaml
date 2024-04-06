@@ -1,0 +1,33 @@
+﻿<Window x:Class="laba1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laba1"
+        mc:Ignorable="d"
+        Title="GamesDS" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="DevelopersButton" Content="Developers Table" Grid.Column="0" Click="DevelopersButton_Click"/>
+        <Button x:Name="GamesButton" Content="Games Table" Grid.Column="1" Click="GamesButton_Click"/>
+        <Button x:Name="PlatformsButton" Content="Platforms Table" Grid.Column="2" Click="PlatformsButton_Click"/>
+        <DataGrid x:Name="MyDataGrid" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" SelectionChanged="MyDataGrid_SelectionChanged" ></DataGrid>
+        <Frame x:Name="MyFrame"/>
+        <TextBox x:Name="ColumnBox1" Grid.Row="2"/>
+        <ComboBox x:Name="ColumnBox2" Grid.Row="2" Grid.Column="1"/>
+        <ComboBox x:Name="ColumnBox3" Grid.Row="2" Grid.Column="2"/>
+        <Button Grid.Row="3" Grid.Column="0" x:Name="InsertButton" Content="Добавить" Click="InsertButton_Click"/>
+        <Button Grid.Row="3" Grid.Column="1" x:Name="Update" Content="Изменить" Click="Update_Click"/>
+        <Button Grid.Row="3" Grid.Column="2" x:Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click"/>
+    </Grid>
+</Window>

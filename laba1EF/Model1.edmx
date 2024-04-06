@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище dartbaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Developers">
+          <Key>
+            <PropertyRef Name="ID_Developer" />
+          </Key>
+          <Property Name="ID_Developer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Studio_Name" Type="nvarchar" MaxLength="15" />
+          <Property Name="Studio_Age" Type="int" />
+          <Property Name="Studio_Owner" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="ID_Game" />
+          </Key>
+          <Property Name="ID_Game" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Game_Name" Type="nvarchar" MaxLength="15" />
+          <Property Name="Game_Online" Type="int" />
+          <Property Name="Developers_ID" Type="int" />
+          <Property Name="Platform_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Platforms">
+          <Key>
+            <PropertyRef Name="ID_Platform" />
+          </Key>
+          <Property Name="ID_Platform" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Platform_Name" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="Хранилище dartbaseModelContainer">
+          <EntitySet Name="Developers" EntityType="Self.Developers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Platforms" EntityType="Self.Platforms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dartbaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Developers">
+          <Key>
+            <PropertyRef Name="ID_Developer" />
+          </Key>
+          <Property Name="ID_Developer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Studio_Name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Studio_Age" Type="Int32" />
+          <Property Name="Studio_Owner" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="ID_Game" />
+          </Key>
+          <Property Name="ID_Game" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Game_Name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Game_Online" Type="Int32" />
+          <Property Name="Developers_ID" Type="Int32" />
+          <Property Name="Platform_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Platforms">
+          <Key>
+            <PropertyRef Name="ID_Platform" />
+          </Key>
+          <Property Name="ID_Platform" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Platform_Name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="dartbaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Developers" EntityType="Self.Developers" />
+          <EntitySet Name="Games" EntityType="Self.Games" />
+          <EntitySet Name="Platforms" EntityType="Self.Platforms" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище dartbaseModelContainer" CdmEntityContainer="dartbaseEntities">
+          <EntitySetMapping Name="Developers">
+            <EntityTypeMapping TypeName="dartbaseModel.Developers">
+              <MappingFragment StoreEntitySet="Developers">
+                <ScalarProperty Name="ID_Developer" ColumnName="ID_Developer" />
+                <ScalarProperty Name="Studio_Name" ColumnName="Studio_Name" />
+                <ScalarProperty Name="Studio_Age" ColumnName="Studio_Age" />
+                <ScalarProperty Name="Studio_Owner" ColumnName="Studio_Owner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="dartbaseModel.Games">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="ID_Game" ColumnName="ID_Game" />
+                <ScalarProperty Name="Game_Name" ColumnName="Game_Name" />
+                <ScalarProperty Name="Game_Online" ColumnName="Game_Online" />
+                <ScalarProperty Name="Developers_ID" ColumnName="Developers_ID" />
+                <ScalarProperty Name="Platform_ID" ColumnName="Platform_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Platforms">
+            <EntityTypeMapping TypeName="dartbaseModel.Platforms">
+              <MappingFragment StoreEntitySet="Platforms">
+                <ScalarProperty Name="ID_Platform" ColumnName="ID_Platform" />
+                <ScalarProperty Name="Platform_Name" ColumnName="Platform_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dartbaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
